@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+{% block title %}PANIER{% endblock %}
+{% block body %}
+     <div class="bg-light p-3">
+        <h1>Votre panier</h1>
+    </div>
+
+    {% if items | length > 0%}
+     <table class="table">
+        <thead> 
+            <tr> 
+            <th>Produit</th>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th>Total</th>
+            <th></th>
+            </tr> 
+        </thead> 
+        <tbody>
+            {% for item in items %} 
+                <tr>
+                     <td>{{item.produit.label}}</td>
+                     <td>{{item.produit.prix}} TND</td>
+                     <td>{{item.quantity}}</td>
+                     <td>{{item.produit.prix * item.quantity}} TND</td>
+                     <td>
+                        <a href="{{ path('panier_remove', {'id': item.produit.id}) }}" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i>
+                        </a>
+
+                         <a href="{{path("panier_add", {id: item.produit.id})}}" class="btn btn-danger btn-sm">
+                            <i class="fas fa-plus"></i>
+                        </a>
+
+                         <a href="{{path("panier_delete", {id: item.produit.id})}}" class="btn btn-danger btn-sm">
+                            <i class="fas fa-minus"></i>
+                        </a>
+
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+                <tr>
+                    <td colspan="3" style="text-align:end;">Total: </td>
+                    <td>{{ total }} TND</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                     
+                    <td colspan="3" style="text-align:end;">
+                        <a href="{{path("achat_save", {items: items})}}" class="btn btn-success btn-sm">
+                        <i class="fas fa-save"> valider</i>
+                        </a>
+                    </td>
+                    <td></td>
+                    
+                </tr>
+        </tfoot>
+    </table>
+
+    
+
+    {% else %}
+        <p>votre panier est vide</p>
+    {% endif %}
+{% endblock %}

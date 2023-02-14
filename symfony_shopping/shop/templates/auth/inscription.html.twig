@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-4 mt-4">
+
+            <h1>Inscription</h1>
+            {{ form_start(authForm) }}
+                {{ form_row(authForm.nom) }}
+                {{ form_row(authForm.prenom) }}
+                {{ form_row(authForm.email) }}
+                {{ form_row(authForm.plainPassword, {
+                    label: 'Password'
+                }) }}
+                <button type="submit"  class="btn btn-primary">s'inscrire</button>
+            {{ form_end(authForm) }}
+       
+   </div>
+<div class="col-4 mt-4">
+    <img class="img-fluid rounded" 
+	src="{{  asset('img/nouveau.png') }}"  
+	style="height:100%; width:100%;">               
+</div>
+</div>
+
+
+{% endblock %}

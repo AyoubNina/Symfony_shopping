@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block title %}ACCUEIL{% endblock %}
+{% block body %}
+
+<div class="example-wrapper">
+
+    <form action={{path('ajouter_bd')}} method=post>
+        <fieldset>
+
+          <div class="bg-light p-3">
+                 <h1>Ajout produit</h1>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputcode" class="form-label mt-4">code</label>
+            <input type="integer" class="form-control" name="code"}>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputcode" class="form-label mt-4">label</label>
+            <input type="string" class="form-control" name="label">
+          </div>
+
+          <div class="form-group">
+            <label for="image" class="form-label mt-4">image</label>
+            <input type="file" class="form-control" name="image" accept="image/png, image/jpeg">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputcode" class="form-label mt-4">description</label>
+            <input type="string" class="form-control" name="description">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputcode" class="form-label mt-4">prix</label>
+            <input type="float" class="form-control" name="prix">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Ajouter</button>
+        </fieldset>
+      </form>
+  
+</div>
+
+
+{% endblock %}

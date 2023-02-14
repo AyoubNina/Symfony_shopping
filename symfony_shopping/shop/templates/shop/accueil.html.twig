@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block title %}ACCUEIL{% endblock %}
+{% block body %}
+
+    <div id="contenu" class="bg-light p-3">
+    <h1>Bienvenue dans votre boutique en ligne</h1>
+    </div>
+    
+    <div class="slider single-item slick-slider">		
+                    <div class="multiple"><img src={{  asset('img/shopping.jpg') }}  width="100%" height="100%"/></div>			
+					<div class="multiple"><img src={{  asset('img/femmes.jpg') }}  width="100%" height="100%"/></div>
+                    <div class="multiple"><img src={{  asset('img/femme2.jpg') }}  width="100%" height="100%"/></div>
+                    <div class="multiple"><img src={{  asset('img/shop.jpg') }}  width="100%" height="100%"/></div>
+
+
+    </div>
+    
+        <script>
+        $(document).ready(function(){
+            $('.single-item').slick({arrows:false,autoplay:true,autoplaySpeed: 1000});
+        });
+        </script>
+     
+{% endblock %}

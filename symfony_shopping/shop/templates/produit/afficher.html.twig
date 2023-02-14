@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="example-wrapper">
+	<div class="bg-light p-3">
+        <h1>Liste des Vêtements</h1>
+    </div>
+    <div class="row">
+        {% for item in items %}
+            <div class="col-4 mt-4">
+                <div class="border-dark rounded p-2 clearfix" style="height:100%;border:6px solid #8f9193!important">
+				    <div style="height:15%">
+                        <h2>
+                            {{ item.label }}
+                            -
+                            {{ item.prix }}
+                            TND
+                        </h2>
+                    </div>
+                    <hr>
+                    <img class="img-fluid rounded" 
+						src="{{  asset('img/' ~ item.image) }}" 
+						alt="Image de {{ item.label }}" 
+						style="height:50%; width:100%;">
+                    <hr>
+					<div style="height:20%">
+					{{ item.description }}
+					</div>
+                    <p style="text-align: center;"><a href="{{path('panier_add',{'id':item.id}) }}" class="btn btn-success float-right">
+					<i  class="fas fa-shopping-cart fa-pulse fa-spin fa-1x"></i>              
+					Ajouter
+                    </a></p>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

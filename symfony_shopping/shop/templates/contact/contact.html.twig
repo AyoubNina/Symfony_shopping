@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title %}Contact{% endblock %}
+{% block body %}
+
+<div class="col-4 mt-4 example-wrapper">
+
+   <form action={{path('contact_bd')}} method=post>
+  <fieldset>
+          <legend>contactez nous</legend> 
+          
+          <div class="form-group">
+            <label for="name" class="form-label mt-4">Nom</label>
+            <input type="text" class="form-control" id="name" name="nom"}>
+          </div>
+
+          <div class="form-group">
+            <label for="prenom" class="form-label mt-4">Prenom</label>
+            <input type="text" class="form-control" id="name" name="prenom"}>
+          </div>
+
+          
+        <div class="form-group">
+      <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+        </div>
+
+          <div class="form-group">
+            <label for="msg" class="form-label mt-4">Message:</label>
+            <textarea id="msg" class="form-control" name="message" rows="4" cols="50"></textarea>
+          </div>
+
+            <button type="submit" class="btn btn-primary">Envoyer le message</button>
+        </fieldset>
+    </form>
+    
+</div>
+
+
+{% endblock %}
